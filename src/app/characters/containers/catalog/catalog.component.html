@@ -1,0 +1,35 @@
+<div class="catalog">
+  <div class="row">
+    <div class="col-md-8">
+      Select your favorite characters
+
+      <div class="row">
+        <div class="col-md-3 col-6" *ngFor="let character of (characters$ | async)">
+          <app-character
+            (selectFavorite)="addFavoriteCharacter($event)"
+            (unselectFavorite)="removeFavoriteCharacter($event)"
+            [character]="character"
+          ></app-character>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <app-favorite-characters
+        [favoriteCharacters]="favoriteCharacters$ | async"
+        (removeFavorite)="removeFavoriteCharacter($event)"
+      ></app-favorite-characters>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <app-paginator
+        *ngIf="(pagination$ | async) as pagination"
+        [pagination]="pagination"
+        [currentPage]="currentPage"
+        [basePath]="CONTAINER_ROUTE"
+        pagesToShow="8"
+      ></app-paginator>
+    </div>
+  </div>
+</div>

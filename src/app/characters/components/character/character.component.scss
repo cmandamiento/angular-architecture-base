@@ -1,0 +1,58 @@
+.character {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.character__image {
+  position: relative;
+  width: 100%;
+
+  &:after {
+    background-color: #ccc;
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+    animation: skeleton-avatar .75s infinite ease-out;
+  }
+
+  img {
+    position: absolute;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.character__description {
+  flex: 1;
+}
+
+.character__name {
+  margin-top: 10px;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+.character__action {
+  padding-top: 2em;
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@keyframes skeleton-avatar {
+  0% {
+    background-color: #ccc;
+  }
+
+  50% {
+    background-color: #a8a8a8;
+  }
+
+  100% {
+    background-color: #ccc;
+  }
+}

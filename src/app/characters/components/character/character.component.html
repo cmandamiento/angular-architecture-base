@@ -1,0 +1,29 @@
+<div class="character">
+  <div class="character__image">
+    <img [src]="character.image" [alt]="character.name">
+  </div>
+
+  <div class="character__description">
+    <div class="character__name">
+      <strong>{{ character.name }}</strong>
+    </div>
+    <div>
+      <strong>Gender: </strong> {{ character.gender }}
+    </div>
+    <div>
+      <strong>Species: </strong> {{ character.species }}
+    </div>
+    <div>
+      <strong>Location: </strong> {{ character.location.name }}
+    </div>
+
+  </div>
+  <div class="character__action">
+    <button *ngIf="!character.selected" (click)="selectCharacter()" class="btn btn-success">
+      Select
+    </button>
+    <button *ngIf="character.selected" (click)="unselectCharacter()" class="btn btn-danger">
+      Unselect
+    </button>
+  </div>
+</div>

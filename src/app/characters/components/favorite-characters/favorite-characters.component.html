@@ -1,0 +1,25 @@
+<div class="favorite-characters">
+  <h3>Favorite characters</h3>
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let char of favoriteCharacters">
+      <div class="row">
+        <div class="col-4 col-md-4">
+          <img class="rounded-circle" [src]="char.image" [alt]="char.name">
+        </div>
+        <div class="col-8 col-md-8">
+          <h5>{{ char.name }}</h5>
+
+          <ng-container [ngSwitch]="char.status">
+            <span class="badge badge-success" *ngSwitchCase="STATUS.ALIVE">{{ char.status }}</span>
+            <span class="badge badge-danger" *ngSwitchCase="STATUS.DEAD">{{ char.status }}</span>
+            <span class="badge badge-warning" *ngSwitchCase="STATUS.UNKNOWN">{{ char.status }}</span>
+          </ng-container>
+
+          <div>
+            <button (click)="remove(char.id)" class="btn-remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
